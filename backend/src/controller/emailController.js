@@ -19,7 +19,41 @@ export async function sendEmailsFromExcel(req, res) {
 
       if (!Email || !Name || !Message || !Subject) continue;
 
-      const personalizedMessage = `<p>Dear ${Name},</p><p>${Message}</p>`;
+      const personalizedMessage = `
+  <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; line-height: 1.6; max-width: 700px; margin: auto;">
+    <h2 style="color: #000;">Industry Partnership Proposal – Trained Graduates (Technical & Business Functions Role) @HopingMinds</h2>
+
+    <p>Hi ${Name},</p>
+
+    <p>Warm greetings from <strong>HopingMinds</strong>.</p>
+
+    ${Message} <!-- 🔥 Dynamic content from Excel -->
+
+    <br/>
+
+    <p><strong>Why Partner with Hoping Minds?</strong></p>
+    <ul>
+      <li>Industry-Oriented Programs with hands-on training</li>
+      <li>Pre-vetted, job-ready candidates across tech & business functions</li>
+      <li>Zero cost hiring with immediate deployment</li>
+    </ul>
+
+    <p>We’d love to schedule a quick call to understand your hiring needs and how we can support you.</p>
+
+    <br/>
+
+    <p><strong>Warm regards,</strong></p>
+
+    <p>
+      <strong>Mudit Vigya</strong><br/>
+      Senior Manager – Placements & Corporate Relations<br/>
+      <a href="https://www.hopingminds.com" target="_blank">www.hopingminds.com</a><br/>
+      📧 <a href="mailto:mudit@hopingminds.com">mudit@hopingminds.com</a><br/>
+      📞 +91 977 988 6900<br/>
+      📍 E-314, 4th Floor, Sector 75, Mohali
+    </p>
+  </div>
+`;
 
       await sendMail({
         from: process.env.EMAIL_USER,
