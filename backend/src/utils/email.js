@@ -1,3 +1,4 @@
+// sendMail.js
 import nodemailer from 'nodemailer';
 
 const sendMail = async ({ to, subject, html }) => {
@@ -16,14 +17,19 @@ const sendMail = async ({ to, subject, html }) => {
       from: process.env.EMAIL_USER,
       to,
       subject,
-      html, // 👈 we're sending HTML messages now
+      html,
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('📧 Email sent: ', info.response);
+    console.log(`📧 Email sent to ${to}:`, info.response);
+
+    // Return success so the bulk processor knows
+    return { to, subject, success: true };
   } catch (error) {
-    console.error('❌ Error sending email:', error);
-    throw new Error(`Email could not be sent: ${error.message}`);
+    console.error(`❌ Error sending email to ${to}:`, error.message);
+
+    // Return failure info
+    return { to, subject, success: false, error: error.message };
   }
 };
 
