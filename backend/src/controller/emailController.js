@@ -24,16 +24,16 @@ export async function sendEmailsFromExcel(req, res) {
     let sentCount = 0;
 
     const staticBody = `
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Hi Sagar,</p>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong style="color: #0a7dda;">Warm greetings from Hoping Minds.</strong></p>
+  
+      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong style="color:rgb(218, 10, 10);">Warm greetings from Hoping Minds.</strong></p>
       <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
         We are excited to extend an invitation for <strong>On-Campus & Off-Campus Hiring</strong> through 
-        <strong style="color: #0a7dda;">Hoping Minds</strong>, offering you access to a diverse pool of highly skilled, 
-        job-ready talent — <span style="color: green;"><strong>at zero cost</strong></span>.
+        <strong style="color:rgb(34, 218, 10);">Hoping Minds</strong>, offering you access to a diverse pool of highly skilled, 
+        job-ready talent — <span style="color: red;"><strong>at zero cost</strong></span>.
         We would love to connect and understand your hiring needs and explore how our trained graduates can add value to your organization.
       </p>
 
-      <h3 style="font-family: Arial, sans-serif; color: #0a7dda;">Why Partner with Hoping Minds?</h3>
+      <h3 style="font-family: Arial, sans-serif; color:rgb(10, 218, 38);">Why Partner with Hoping Minds?</h3>
       <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
         <strong>Hoping Minds</strong> runs <strong>Industry-Oriented Programs</strong> designed to equip students with 
         hands-on experience, corporate readiness, and holistic development. 
@@ -52,7 +52,7 @@ export async function sendEmailsFromExcel(req, res) {
         <li>Personality Development & Workplace Etiquette</li>
       </ul>
 
-      <h3 style="font-family: Arial, sans-serif; color: #0a7dda;">Why Top Recruiters Prefer Hoping Minds?</h3>
+      <h3 style="font-family: Arial, sans-serif; color:rgb(218, 10, 10);">Why Top Recruiters Prefer Hoping Minds?</h3>
       <ul style="font-family: Arial, sans-serif; font-size: 16px; color: #333; padding-left: 20px;">
         <li><strong>Streamlined Process:</strong> Access a pre-vetted, diverse talent pool in one go</li>
         <li><strong>Immediate Availability:</strong> Candidates ready for immediate deployment</li>
@@ -75,28 +75,52 @@ export async function sendEmailsFromExcel(req, res) {
 
       <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
         We would be delighted to schedule a conversation and discuss how 
-        <strong style="color: #0a7dda;">Hoping Minds</strong> can support your recruitment objectives.
+        <strong style="color:rgb(218, 10, 10);">Hoping Minds</strong> can support your recruitment objectives.
       </p>
 
       <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Looking forward to hearing from you!</p>
       <br>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">--</p>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        <strong>Mudit Vigya</strong><br>
-        Senior Manager – Placements & Corporate Relations<br>
-        <a href="https://www.hopingminds.com" style="color: #0a7dda;">www.hopingminds.com</a><br><br>
-        E: <a href="mailto:mudit@hopingminds.com" style="color: #0a7dda;">mudit@hopingminds.com</a><br>
-        M: +91 977 988 6900<br>
-        A: E-314, 4th Floor, Sector 75, Mohali
-      </p>
+    
     `;
-
+    const gmailSignature = `
+  <br><br>
+  <table cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+    <tr>
+      <td style="padding-right: 20px; border-right: 2px solid #73c79f;">
+        <p style="margin: 0; font-weight: bold; font-size: 16px; color: #45b47c;">Mudit Vigya</p>
+        <p style="margin: 0;">Senior Manager - Placements & Corporate Relations</p>
+        <p style="margin: 5px 0;">
+          <a href="https://www.hopingminds.com" style="color: #45b47c; text-decoration: none;">www.hopingminds.com</a>
+        </p>
+        <p style="margin-top: 8px;">
+          <a href="https://facebook.com" target="_blank" style="text-decoration: none; margin-right: 5px;">
+            <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook" style="vertical-align: middle;">
+          </a>
+          <a href="https://linkedin.com/in/muditvigya" target="_blank" style="text-decoration: none; margin-right: 5px;">
+            <img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" alt="LinkedIn" style="vertical-align: middle;">
+          </a>
+          <a href="https://instagram.com" target="_blank" style="text-decoration: none;">
+            <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" style="vertical-align: middle;">
+          </a>
+        </p>
+      </td>
+      <td style="padding-left: 20px;">
+        <a href="https://www.hopingminds.com" target="_blank">
+          <img src="https://sbs.ac.in/wp-content/uploads/2023/09/Asset-5.png" alt="Hoping Minds" height="40" style="margin-bottom: 8px;">
+        </a><br>
+        <p style="margin: 0;"><strong style="color: #d00;">E:</strong> <a href="mailto:mudit@hopingminds.com" style="color: #000;">mudit@hopingminds.com</a></p>
+        <p style="margin: 0;"><strong style="color: #d00;">M:</strong> +91 977 988 6900</p>
+        <p style="margin: 0;"><strong style="color: #d00;">A:</strong> E-314, 4th Floor, Sector 75, Mohali</p>
+      </td>
+    </tr>
+  </table>
+`;
     for (const row of data) {
       const { Email, Name, Subject } = row;
 
       if (!Email || !Name || !Subject) continue;
 
-      const finalMessage = `<p>Dear ${Name},</p>${staticBody}`;
+      const finalMessage = `<p>Dear ${Name},</p>${staticBody}${gmailSignature}`;
 
       try {
         await sendMail({
