@@ -24,64 +24,53 @@ export async function sendEmailsFromExcel(req, res) {
     let sentCount = 0;
 
     const staticBody = `
-  
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong style="color:rgb(218, 10, 10);">Warm greetings from Hoping Minds.</strong></p>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        We are excited to extend an invitation for <strong>On-Campus & Off-Campus Hiring</strong> through 
-        <strong style="color:rgb(34, 218, 10);">Hoping Minds</strong>, offering you access to a diverse pool of highly skilled, 
-        job-ready talent — <span style="color: red;"><strong>at zero cost</strong></span>.
-        We would love to connect and understand your hiring needs and explore how our trained graduates can add value to your organization.
-      </p>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Dear</p>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong>Warm greetings from <span style="font-weight: bold;">Hoping Minds</span>.</strong></p>
 
-      <h3 style="font-family: Arial, sans-serif; color:rgb(10, 218, 38);">Why Partner with Hoping Minds?</h3>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        <strong>Hoping Minds</strong> runs <strong>Industry-Oriented Programs</strong> designed to equip students with 
-        hands-on experience, corporate readiness, and holistic development. 
-        Our talent pool is <strong>rigorously trained</strong> and ready to contribute from <strong>Day 1</strong>.
-      </p>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong>We offer skilled candidates across both Technical and Business Functional domains, including:</strong></p>
-      <ul style="font-family: Arial, sans-serif; font-size: 16px; color: #333; padding-left: 20px;">
-        <li><strong>Technical:</strong> Data Science, Full Stack Development, Electric Vehicle Design, Hydrocarbon, AWS, Cybersecurity, and more</li>
-        <li><strong>Business Functions:</strong> Sales, Marketing, Human Resources, Finance, Business Operations, Customer Support, and more</li>
-      </ul>
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong>Our dynamic curriculum aligns with real-time industry demands, covering:</strong></p>
-      <ul style="font-family: Arial, sans-serif; font-size: 16px; color: #333; padding-left: 20px;">
-        <li>Core Domain Knowledge</li>
-        <li>Aptitude & Data Interpretation</li>
-        <li>Communication & Interview Preparation</li>
-        <li>Personality Development & Workplace Etiquette</li>
-      </ul>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+    We are an <strong>EdTech-driven Talent Solutions Partner</strong>, committed to empowering organizations through our comprehensive 
+    <span style="color: red;">Recruitment, Training, and Deployment programs</span>. 
+    At <span style="font-weight: bold;">Hoping Minds</span>, we aim to bridge the gap between academia and industry by preparing and delivering job-ready talent 
+    that aligns with the evolving business landscape.
+  </p>
 
-      <h3 style="font-family: Arial, sans-serif; color:rgb(218, 10, 10);">Why Top Recruiters Prefer Hoping Minds?</h3>
-      <ul style="font-family: Arial, sans-serif; font-size: 16px; color: #333; padding-left: 20px;">
-        <li><strong>Streamlined Process:</strong> Access a pre-vetted, diverse talent pool in one go</li>
-        <li><strong>Immediate Availability:</strong> Candidates ready for immediate deployment</li>
-        <li><strong>Rigorous Talent Selection:</strong> Three-step screening ensures quality</li>
-        <li><strong>Job-Ready Workforce:</strong> Trained for both technical and corporate environments</li>
-        <li><strong>Cost-Efficient Hiring:</strong> Save on onboarding & training expenses</li>
-        <li><strong style="color: green;">Zero Cost to Company:</strong> No commissions, no hidden charges</li>
-      </ul>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+    As part of our commitment to excellence, we offer a wide range of services including 
+    <span style="color: red;">Campus Recruitment for fresh graduates</span>, 
+    <span style="color: red;">Lateral Hiring</span>, 
+    <span style="color: red;">Employee Upskill Training</span>, 
+    <span style="color: red;">Domain-Specific Training</span>, 
+    <span style="color: red;">Corporate Training</span>, 
+    <span style="color: red;">Training Needs Identification (TNI)</span> and 
+    <span style="color: red;">Training Needs Analysis (TNA)</span>, 
+    as well as designing and implementing 
+    <span style="color: red;">Performance Matrices</span> 
+    to support long-term employee growth and organizational success.
+  </p>
 
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        As a certified <strong>National Skill Development Corporation (NSDC)</strong> Partner, we maintain 
-        high-quality training standards. With a growing pool of <strong>1,000+ skilled graduates</strong>, 
-        we are confident in offering you tailor-made hiring solutions.
-      </p>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+    We proudly serve as a recruitment partner for renowned companies such as 
+    <span style="color: green;">ACME Group</span>, supporting them in both 
+    <span style="color: red;">lateral hiring</span> and 
+    <span style="color: red;">structured campus drives</span> at prestigious institutions like 
+    <span style="color: green;">IITs, NITs, BITs, IIMs</span>, and other leading universities. 
+    Our successful placements span across roles including Graduate Engineer Trainees (GETs), Management Trainees, Legal Advisors, and more.
+  </p>
 
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        We are also associated with top universities and colleges across the country, providing you access 
-        to a diverse and pan-India talent base — all through a single platform.
-      </p>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+    Additionally, we have a 
+    <span style="color: green;">pool of over 2000+ experienced professionals</span> from relevant domains, ready to add immediate value 
+    to forward-thinking organizations like yours.
+  </p>
 
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        We would be delighted to schedule a conversation and discuss how 
-        <strong style="color:rgb(218, 10, 10);">Hoping Minds</strong> can support your recruitment objectives.
-      </p>
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+    We would be delighted to explore collaboration opportunities with your esteemed organization. 
+    Please let us know a convenient time to connect and discuss how 
+    <span style="font-weight: bold;">Hoping Minds</span> can support your hiring and talent development goals.
+  </p>
 
-      <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Looking forward to hearing from you!</p>
-      <br>
-    
-    `;
+  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Looking forward to your response.</p>
+`;
     const gmailSignature = `
   <br><br>
   <table cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif; font-size: 14px; color: #333;">
