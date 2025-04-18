@@ -24,52 +24,52 @@ export async function sendEmailsFromExcel(req, res) {
     let sentCount = 0;
 
     const staticBody = `
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Dear</p>
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;"><strong>Warm greetings from <span style="font-weight: bold;">Hoping Minds</span>.</strong></p>
+  
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+  <strong>Warm greetings from <span style="font-weight: bold;">Hoping Minds</span>.</strong>
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-    We are an <strong>EdTech-driven Talent Solutions Partner</strong>, committed to empowering organizations through our comprehensive 
-    <span style="color: red;">Recruitment, Training, and Deployment programs</span>. 
-    At <span style="font-weight: bold;">Hoping Minds</span>, we aim to bridge the gap between academia and industry by preparing and delivering job-ready talent 
-    that aligns with the evolving business landscape.
-  </p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+  We are an <strong>EdTech-driven Talent Solutions Partner</strong>, committed to empowering organizations through our comprehensive 
+  <span style="color: green;">Recruitment, Training, and Deployment programs</span>. 
+  At <span style="font-weight: bold;">Hoping Minds</span>, we aim to bridge the gap between academia and industry by preparing and delivering job-ready talent 
+  that aligns with the evolving business landscape.
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-    As part of our commitment to excellence, we offer a wide range of services including 
-    <span style="color: red;">Campus Recruitment for fresh graduates</span>, 
-    <span style="color: red;">Lateral Hiring</span>, 
-    <span style="color: red;">Employee Upskill Training</span>, 
-    <span style="color: red;">Domain-Specific Training</span>, 
-    <span style="color: red;">Corporate Training</span>, 
-    <span style="color: red;">Training Needs Identification (TNI)</span> and 
-    <span style="color: red;">Training Needs Analysis (TNA)</span>, 
-    as well as designing and implementing 
-    <span style="color: red;">Performance Matrices</span> 
-    to support long-term employee growth and organizational success.
-  </p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+  As part of our commitment to excellence, we offer a wide range of services including 
+  <span style="color: red;">Campus Recruitment for fresh graduates</span>, 
+  <span style="color: red;">Lateral Hiring</span>, 
+  <span style="color: red;">Employee Upskill Training</span>, 
+  <span style="color: red;">Domain-Specific Training</span>, 
+  <span style="color: red;">Corporate Training</span>, 
+  <span style="color: red;">Training Needs Identification (TNI)</span> and 
+  <span style="color: red;">Training Needs Analysis (TNA), as well as designing and implementing Performance Matrices</span> 
+  to support long-term employee growth and organizational success.
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-    We proudly serve as a recruitment partner for renowned companies such as 
-    <span style="color: green;">ACME Group</span>, supporting them in both 
-    <span style="color: red;">lateral hiring</span> and 
-    <span style="color: red;">structured campus drives</span> at prestigious institutions like 
-    <span style="color: green;">IITs, NITs, BITs, IIMs</span>, and other leading universities. 
-    Our successful placements span across roles including Graduate Engineer Trainees (GETs), Management Trainees, Legal Advisors, and more.
-  </p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+  We proudly serve as a recruitment partner for renowned companies such as 
+  <span style="color: green;">ACME Group</span>, supporting them in both 
+  <span style="color: red;">lateral hiring</span> and 
+  <span style="color: red;">structured campus drives</span> at prestigious institutions like 
+  <span style="color: green;">IITs, NITs, BITs, IIMs</span>, and other leading universities. 
+  Our successful placements span across roles including Graduate Engineer Trainees (GETs), Management Trainees, Legal Advisors, and more.
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-    Additionally, we have a 
-    <span style="color: green;">pool of over 2000+ experienced professionals</span> from relevant domains, ready to add immediate value 
-    to forward-thinking organizations like yours.
-  </p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; font-weight: bold;">
+  Additionally, we have a 
+  <span style="color: green;">pool of over 2000+ experienced professionals</span> from relevant domains, ready to add immediate value 
+  to forward-thinking organizations like yours.
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-    We would be delighted to explore collaboration opportunities with your esteemed organization. 
-    Please let us know a convenient time to connect and discuss how 
-    <span style="font-weight: bold;">Hoping Minds</span> can support your hiring and talent development goals.
-  </p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+  We would be delighted to explore collaboration opportunities with your esteemed organization. 
+  Please let us know a convenient time to connect and discuss how 
+  <span style="font-weight: bold;">Hoping Minds</span> can support your hiring and talent development goals.
+</p>
 
-  <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Looking forward to your response.</p>
+<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">Looking forward to your response.</p>
 `;
     const gmailSignature = `
   <br><br>
