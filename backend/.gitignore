@@ -1,2 +1,31 @@
-node_modules
+# Node modules
+node_modules/
+
+# Environment variables
 .env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files (optional, depending on whether you want to keep them)
+uploads/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+
+# Build files (if using TypeScript or transpilers)
+dist/
+build/
+
+# Mac system file
+*.DS_Store
